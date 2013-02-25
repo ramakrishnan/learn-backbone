@@ -1,0 +1,31 @@
+<h1> Listing Accounts </h1>
+  <%= javascript_tag  do%>
+     window.users = <%= @users.html_safe %>
+  <% end%>
+
+
+<div id="app-container">
+    <button id="new-account">Create account</button>
+    <%= form_for :users, :html => {:id => "save-account"} do %>
+            <input name="user[name]" type="text" placeholder="Enter a name"/>
+            <input name ="user[age]" type="text" placeholder="Enter age"/>
+            <input type="Submit" value="Save account">
+    <% end %>
+    <table id='account-lists' style="width:200px"></table>
+</div>
+<style type="text/css">
+#account-lists {
+    margin: 10px;
+}
+#account-lists td {
+    border: 1px solid black;
+}
+</style>
+
+
+
+
+<script type="text/template" id="account-view">
+    <td> {{= name }}</td>
+    <td> {{= age }}</td>
+</script>

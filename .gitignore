@@ -1,0 +1,10 @@
+.bundler
+*.swap
+.rvmrc
+temp/
+log/*
+cnfig/database.yml
+public/assets
+*.sublime-project
+*.sublime-workspace
+
