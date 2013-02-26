@@ -8,12 +8,23 @@ define(["jquery",
         tagName: "tr",
 
         initialize : function () {
-            this.render();
+            this.listenTo(this.model, 'destroy', this.remove);
+            this.listenTo(this.model, 'change', this.render);
+        },
+
+        events: {
+            "click .delete": "deleteUser"
+        },
+
+        deleteUser: function (e) {
+            e.preventDefault();
+            console.log("Edit me");
+            console.log(this.model.destroy());
         },
 
         render : function () {
             this.$el.html(  _.template( UserTemplate, this.model.toJSON() ));
-            $("#account-lists").append( this.el );
+            return this;
             }
     });
 
@@ -35,9 +46,6 @@ define(["jquery",
             this.registrationForm.show();
         },
 
-        render : function () {
-        },
-
         addAll: function () {
             UserColectionl.each(this.addNew, this);
         },
@@ -53,7 +61,8 @@ define(["jquery",
         },
 
         addNew: function (account) {
-            new UserView({model :account});
+           view = new UserView({model :account});
+           $("#account-lists").append( view.render().el );
         }
     });
     

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
     def index
             @users = User.find(:all) .to_json
-            #render  :json  =>@user
      end
 
     def create
@@ -11,5 +10,19 @@ class UsersController < ApplicationController
         else
             render :json => {:message => "User creation failed"}
         end
+    end
+
+    def update
+        user = User.find(params[:id])
+        user.update_attributes(params[:user])
+        if user.save
+            render :json => user
+        else
+            render :json => {:message => "User creation failed"}
+        end
+    end
+
+    def destroy
+        render :json => User.find(params[:id]).destroy
     end
 end

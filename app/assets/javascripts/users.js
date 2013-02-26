@@ -3,15 +3,15 @@ define(["jquery",
             "backbone", 
             "user-model", 
             "user-view",
-            "user-collection"], function($,_,Backbone, UserModel, UserView, UCol) {
+            "user-collection"], function($,_,Backbone, UserModel, UserView, UserCollection) {
 
- var init = function() { 
+ var init = function() {
      var AppRouter = Backbone.Router.extend({
         routes : {
               "" : "index"
         },
         index : function () {
-           UCol.reset(window.users);
+           UserCollection.reset(window.users);
         }
      });
    
