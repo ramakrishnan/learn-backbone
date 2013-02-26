@@ -18,8 +18,9 @@ define(["jquery",
 
         deleteUser: function (e) {
             e.preventDefault();
-            console.log("Edit me");
-            console.log(this.model.destroy());
+            if (confirm ("Are you sure?")) {
+                this.model.destroy();
+            }
         },
 
         render : function () {
