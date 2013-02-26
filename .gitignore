@@ -1,7 +1,7 @@
 .bundler
 *.swap
 .rvmrc
-temp/
+temp/*
 log/*
 cnfig/database.yml
 public/assets

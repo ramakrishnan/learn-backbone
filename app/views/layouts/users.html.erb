@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SampleAr</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= requirejs_include_tag "users-main" %>
+  <%= csrf_meta_tags %>  
+</head>
+<body>
+<div id="page-container">
+    <%= yield %>
+</div>
+</body>
+</html>
