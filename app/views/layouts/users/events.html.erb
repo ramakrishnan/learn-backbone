@@ -3,11 +3,7 @@
 <head>
   <title>SampleAr</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= requirejs_include_tag "users-main"  do 
-    {
-        :currentUser => 1
-    }
-  end %>
+  <%= requirejs_include_tag "events-main" %>
   <%= csrf_meta_tags %>  
 </head>
 <body>

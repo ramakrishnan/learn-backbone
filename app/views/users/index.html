@@ -1,7 +1,8 @@
   <%= javascript_tag  do%>
      window.users = <%= @users.html_safe %>
   <% end%>
-
+  
+<%= render "shared/header" %>
 <h1> Listing Accounts </h1>
 <div id="app-container">
     <button id="new-account">Create account</button>
@@ -12,32 +13,3 @@
     <% end %>
     <table id='account-lists' style="width:200px"></table>
 </div>
-
-<style type="text/css">
-  #page-container {
-    margin: 0 auto;
-    padding: 10px;
-    width: 800px;  
-    border: 1px solid red;
-    background-color: #ffffff;
-    min-height: 900px;
-  }
-  body {
-    background-color: #c2c2c2;
-    font-size: 14px;
-    font-family: Arial;
-  }
-  #account-lists {
-      margin: 10px;
-  }
-  #account-lists td {
-      border: 1px solid black;
-      padding:5px;
-  }
-  a {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-</style>

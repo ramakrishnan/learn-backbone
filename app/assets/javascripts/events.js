@@ -1,9 +1,9 @@
 define(["jquery", 
             "underscore", 
             "backbone", 
-            "user-model", 
-            "user-view",
-            "user-collection"], function($,_,Backbone, UserModel, UserView, UserCollection) {
+            "event-model", 
+            "event-view",
+            "event-collection"], function($,_,Backbone, EventModel, EventView, EventCollection) {
 
  var init = function() {
      var AppRouter = Backbone.Router.extend({
@@ -11,7 +11,7 @@ define(["jquery",
               "" : "index"
         },
         index : function () {
-           UserCollection.reset(window.users);
+           EventCollection.reset(window.users);
         },
      });
    

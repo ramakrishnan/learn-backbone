@@ -1,6 +1,6 @@
 define(["jquery", "underscore", "backbone"], function($,_,Backbone) {
-    var UserModel = Backbone.Model.extend( {
+    var EventModel = Backbone.Model.extend( {
 
     });
-    return  UserModel;
+    return  EventModel;
 });

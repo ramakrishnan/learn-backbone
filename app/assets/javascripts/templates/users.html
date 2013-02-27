@@ -1,3 +1,10 @@
+<td> <%- id %></td>
 <td> <%- name %></td>
 <td> <%- age %></td>
 <td> <a href="#" class="delete">Delete</a></td>
+<% if (currentUser != id) { %>
+<td> <a class="follow" href="#" data-account_id=<%- id %>>Follow</a></td>
+<% } else { %>
+<td> <a href="#"></a></td>
+<% } %>
+<td> <a href="/users/<%- id %>/events" class="events">See Events</a></td>
