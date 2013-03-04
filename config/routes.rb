@@ -10,6 +10,12 @@ SampleAr::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match "api/*query" => "api#show", :via => :get
+
+  match "api/*query" => "api#create", :via => :post
+
+  match "api/*query" => "api#update", :via => :patch
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users do
