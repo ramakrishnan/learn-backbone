@@ -11,7 +11,6 @@ define(["jquery",
 
         initialize : function () {
             this.listenTo(this.model, 'destroy', this.remove);
-            //this.listenTo(this.model, 'change', this.render);
             this.listenTo(this.model, 'sync', this.render);       
         },
 
@@ -31,19 +30,19 @@ define(["jquery",
         followAccount: function (e) {
             e.preventDefault();
             var follow = new FollowModel;
-            follow.save({user_id: 2 }, {
+            var target = $(e.target);
+            follow.save({user_id: target.data().account_id }, {
                 success: function () {
-                    $(e.target)
-                    .text("Unfollow")
-                    .addClass("unfollow")
-                    .removeClass("follow");
+                    target
+                        .text("Unfollow")
+                        .addClass("unfollow")
+                        .removeClass("follow");
                 }
             });
         },
 
         unFollowAccount: function (e) {
             e.preventDefault();
-            alert("Un Follow me");
         },
 
         render : function () {
@@ -94,6 +93,6 @@ define(["jquery",
         }
     });
     
-    var UCView = new UserCollectionView;
+    new UserCollectionView;
 
 });
