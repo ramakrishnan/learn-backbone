@@ -10,7 +10,7 @@ class ApiController < ApplicationController
     end
 
     def update
-        response = HTTPClient.new.send(:put, "http://local.fs.lsops.org:3000/#{params["query"]}", {:body => params, :header => {"Authorization" => request.headers["Authorization"] }})
+        response = HTTPClient.new.send(:put, "http://local.fs.lsops.org:3000/#{params["query"]}", {:body => params["api"], :header => {"Authorization" => request.headers["Authorization"] }})
         puts response.body
         puts response.body.class
         render :json => response.body, :status => response.status

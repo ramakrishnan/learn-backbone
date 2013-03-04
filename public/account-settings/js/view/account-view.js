@@ -1,17 +1,17 @@
-define(["jquery",
-"underscore",
-"backbone",
- "text!template/settings-template.html",
- "backbone-validation"], 
-    function ($, 
-                _,
-                Backbone,
-                SettingsTemplate) {
-
+    define(["jquery",
+        "underscore",
+        "backbone",
+         "text!template/settings-template.html",
+         "backbone-validation"], 
+            function ($, 
+                        _,
+                        Backbone,
+                        SettingsTemplate) {
+                
     return  Backbone.View.extend({
-        tagName: "form",
+        tagName: "div",
         initialize: function () {
-            this.listenTo(this.model, "sync", this.showAccount);
+            this.model.once("sync", this.showAccount);
             Backbone.Validation.bind(this);
         },
 

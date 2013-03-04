@@ -18,7 +18,7 @@ define (["jquery",
         },
         urlRoot:  function () {
             // I currently proxy the request to API through api_controller
-            return "/api/accounts" + this.account_id  + "/links"
+            return "/api/accounts/" + this.get("account_id")  + "/links"
         }
     });
 });

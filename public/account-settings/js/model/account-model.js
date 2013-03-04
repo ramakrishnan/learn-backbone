@@ -5,7 +5,7 @@ define (["jquery",
     return Backbone.Model.extend ({
         validation: {
             full_name: {
-      //          required: true
+                required: true
             },
             email: {
                required: true,
@@ -19,7 +19,7 @@ define (["jquery",
         },
         urlRoot:  function () {
             // I currently proxy the request to API through api_controller
-            return "/api/accounts"
+            return "/api/accounts/"
         }
     });
 });
