@@ -44,7 +44,7 @@ define(["jquery",
                         headers: {
                             "Authorization" : "Bearer 860bd895430f50f7e36d1582614bca2f"
                             },
-                    });                
+                    });
             },            
 
             render: function () {
