@@ -15,16 +15,10 @@ require.config({
 
 require(["jquery", "underscore", "backbone", 
         "account-model", 
-        "account-view",
-        "account-links-model",
-        "account-links-view",        
-        "account-links-collection"], 
+        "account-view"], 
     function ($, _,  Backbone,
                     AccountModel,
-                    AccountView,
-                    AccountLinkModel,
-                    AccountLinkView,
-                    AccountLinksCollection) {
+                    AccountView) {
 
     var AppAccountView = Backbone.View.extend({
         el: "#app-container",
@@ -36,22 +30,11 @@ require(["jquery", "underscore", "backbone",
                     "Authorization" : "Bearer 860bd895430f50f7e36d1582614bca2f"
                 }
             });
-            this.listenTo(AccountLinksCollection, "add", this.displayAccLinks);
-        },
-
-        displayAccLinks: function(accLink) {
-            var view = new AccountLinkView({model: accLink});
-            $("#links").append(view.render().el);
         },
 
         showAccountForm: function (account) {
             var accView = new AccountView({model: account});
             $("#form-container").html(accView.render().el);
-            
-            _.each(account.get("links"), function (accLink, index) {
-                    _.extend(accLink, {id: index, account_id: account.id});
-                    AccountLinksCollection.add(new AccountLinkModel(accLink));
-                });
             }
     });
     new AppAccountView;

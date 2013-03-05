@@ -39,6 +39,7 @@ define(["jquery",
                 console.log("data--2----", data);
                 this.model.save(data,
                     {
+                        method: 'PUT',
                         patch: true,
                         headers: {
                             "Authorization" : "Bearer 860bd895430f50f7e36d1582614bca2f"

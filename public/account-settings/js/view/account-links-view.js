@@ -27,6 +27,7 @@ define(["jquery", "underscore","backbone",
         },
 
         render: function () {
+            console.log(this.model.toJSON() );
            this.$el.html(_.template( AccountLinksTemplate , this.model.toJSON() ));
            return this;
         }
