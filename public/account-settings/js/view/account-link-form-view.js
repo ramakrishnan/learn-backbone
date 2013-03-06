@@ -8,7 +8,7 @@ define(["jquery",
             tagName: "div",
             className: "edit-account-link",
             initialize: function () {                
-                this.listenTo(this.model,"sync", this.renderLinkView);                
+                this.listenTo(this.model,"change", this.render);
             },
 
             events: {
@@ -16,18 +16,10 @@ define(["jquery",
                 "click .update-link": "update"
             },
 
-            renderLinkView: function (accLink) {
-                console.log(" only ")
-                this.$el.parent().find(".view-link")
-                    .remove().end()
-                    .html(_.template(AccountLinksTemplate, this.model.toJSON() ));
-                this.$el.remove();
-            },
-
             hideForm: function (e) {
                 e.preventDefault();
                 this.$el.parent().find(".view-link").show();
-                this.$el.parent().find(".edit-account-link").remove();              
+                this.$el.parent().find(".edit-account-link").remove();
             },
 
             update: function (e) {
@@ -36,7 +28,6 @@ define(["jquery",
                 _.each ( this.form.serializeArray() , function (x) {
                     data[x.name] = x.value;
                 });
-                console.log("data--2----", data);
                 this.model.save(data,
                     {
                         method: 'PUT',

@@ -12,10 +12,15 @@ define(["jquery",
             tagName: "tr",
             initialize: function () {                
                 this.listenTo(this.model, "change", this.render);
+                this.listenTo(this.model, "error", this.myfun);
             },
 
             events: {
                 "click .edit": "edit"
+            },
+
+            myfun: function () {
+                this.model.set(this.model.previousAttributes());
             },
 
             edit: function (e) {
