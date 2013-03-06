@@ -42,10 +42,7 @@ require(["jquery", "underscore", "backbone",
             e.preventDefault();
             var cat = new CategoryModel;
             var view = new CategoryFormView({model: cat, caption : "Create" });
-            $("#form-area").html(view.render().el);                    
-            $('html, body').animate({
-                scrollTop: $("#form-area").offset().top
-            }, 1000);
+            view.render();
         },
 
         addAll: function () {

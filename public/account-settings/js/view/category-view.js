@@ -21,10 +21,7 @@ define(["jquery",
             edit: function (e) {
                 e.preventDefault();
                 var view = new CategoryFormView({model: this.model, caption : "Update" });
-                $("#form-area").html(view.render().el);                    
-                $('html, body').animate({
-                    scrollTop: $("#form-area").offset().top
-                }, 1000);
+                view.render();
             },
 
             render: function () {

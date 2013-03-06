@@ -7,17 +7,16 @@ define(["jquery",
         CategoryFormTemplate,
         CategoryCollection) {
         return Backbone.View.extend({
-            initialize: function () {
-             
-            },
-
             events: {
                 "click .save" : "update"
             },
 
             render: function () {
                 this.$el.html( _.template( CategoryFormTemplate, {model: this.model, options: this.options }));
-                return this;
+                $("#form-area").html(this.el);
+                $('html, body').animate({
+                    scrollTop: $("#form-area").offset().top
+                }, 1000);
             },
 
             update: function (e) {
