@@ -7,6 +7,10 @@ define (["jquery",
             this.on('invalid', function(model, errors) {
                 console.log("Error ", errors);
             });
-        }
+        },
+        default: {
+            name: ""
+        },
+        urlRoot: "/api/categories"
     });
 });

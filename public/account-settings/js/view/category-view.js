@@ -11,7 +11,11 @@ define(["jquery",
         return Backbone.View.extend({
             tagName: "tr",
             initialize: function () {                
-                // this.listenTo(this.model, "sync", this.render);
+                this.listenTo(this.model, "change", this.render);
+            },
+
+            events: {
+                "click .edit": "edit"
             },
 
             edit: function (e) {

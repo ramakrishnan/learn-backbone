@@ -8,31 +8,33 @@ define(["jquery",
         CategoryCollection) {
         return Backbone.View.extend({
             initialize: function () {
-                this.listenTo(this.model, "sync", this.refresh);
+             
             },
 
-            refresh: function () {
-                this.$el.remove(); 
+            events: {
+                "click .save" : "update"
             },
 
             render: function () {
                 this.$el.html( _.template( CategoryFormTemplate, {model: this.model, options: this.options }));
                 return this;
             },
-            events: {
-                "click .save": "update"
-            },
+
             update: function (e) {
                 e.preventDefault();
-                console.log("====", this);
-                this.model.save({},
-                    {
+                var method = this.model.isNew() ? "POST" : "PUT";
+                this.model.save({name: this.$el.find("#category-name").val()},
+                        {
                         patch: true,
-                        method: 'PUT',
+                        method: method,
                         headers: {
-                            "Authorization" : "Bearer 673937cc02871bb2836d8948b683a739"
+                            "Authorization" : "Bearer 2fa423307d168f78d514289d30714203"
                         }
                     });
-            }            
+                if ( this.model.isNew() ) {
+                    CategoryCollection.add(this.model);
+                }
+                this.$el.remove();
+            }
         });
     });
