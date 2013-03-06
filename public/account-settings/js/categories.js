@@ -31,7 +31,7 @@ require(["jquery", "underscore", "backbone",
                 }
             });            
             this.listenTo(CategoryCollection, "reset", this.addAll);
-            this.listenTo(CategoryCollection, "add", this.addAll);
+            this.listenTo(CategoryCollection, "add", this.addOne);
         },
 
         events: {
